@@ -4,15 +4,11 @@ USE sakila;
 SELECT first_name, last_name
 FROM actor;
 
-/*1b.*//*UPPER needed*/
-DROP TABLE IF EXISTS Actor_Name
-CREATE TABLE Actor_Name (
-    id INTEGER NOT NULL AUTO INCREMENT,
-    first_name VARCHAR(45) NOT NULL,
-    last_name VARCHAR(45) NOT NULL,
-    UPPER(Actor_Name)
-    PRIMARY KEY (id)
-);
+/*1b.*/
+SELECT CONCAT(UPPER(first_name)," ",UPPER(last_name)) 
+AS 'actor name'
+FROM actor;
+
 
 INSERT INTO Actor_Name (name)
 SELECT CONCAT(first_name, " ", last_name)
